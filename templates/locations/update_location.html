@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  
+    <h1 class=text-center>Location {{ location.location_id }}<br/></h1>
+    <hr>    
+    <div class="content-section col-md-6 offset-md-3">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br/>
+            <input type="submit" value="UPDATE" class="btn btn-warning">
+        </form>
+        
+    </div>
+
+{% endblock %}

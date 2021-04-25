@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <h1 class='text-center'>Client {{ client.client_id }}<br/></h1>
+  <hr>    
+
+    <div class="card col-md-6 offset-md-3" style="width: 30rem;">
+      <div class="card-body">
+        <p class="card-text">
+            {{ client.client_type }}<br>
+            <br/>
+            {% if user.is_staff %}
+              <a class="btn btn-info" href="{% url 'update-client' client.id %}">Update</a>
+              <a class="btn btn-danger" href="{% url 'delete-client' client.id %}">Delete</a>
+              <a class="btn btn-primary" href="http://127.0.0.1:8000/clients_api/">API</a>
+            {% else %}
+            {% endif %}
+        </p>
+      </div>
+    </div>
+      <br/><br/><br/>
+      <a class="btn btn-secondary" href="{% url 'list-clients' %}">Return To List</a>
+      <br/>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <h1 class="text-center">Test Sequence{{ test_sequence.sequence_name }}<br/></h1>
+        <hr>        
+    
+
+    <div class="card col-md-6 offset-md-3" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ test_sequence.sequence_name }}</h5>
+          <br/>
+          {% if user.is_staff %}
+            <a class="btn btn-info" href="{% url 'update-test-sequence' test_sequence.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'delete-test-sequence' test_sequence.id %}">Delete</a>
+            <a class="btn btn-primary" href="http://127.0.0.1:8000/testsequences_api/">API</a>
+          {% else %}
+          {% endif %}
+        </div>
+    </div>
+      <br/><br/><br/>
+      <a href="{% url 'list-test-sequences' %}" class="btn btn-secondary">Return To List</a>
+      <br/>
+
+{% endblock %}

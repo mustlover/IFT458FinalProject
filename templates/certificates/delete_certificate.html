@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="content-section col-md-6 offset-md-3">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h1 class=text-center>Certificate to delete<br/></h1>
+            <div class="container-sm" style="border: solid 5px red;"><h2 class="text-center">{{ certificate.certificate_number }}</h2></div>
+            <hr>
+            <h2 class="text-center">Do you want to delete this certificate?</h2> 
+            <br/>
+            <p class="text-center"><input type="submit" value="YES" class="btn btn-danger" style="margin-right: 15%;" ><a class="btn btn-secondary" href="../">Cancel</a></p>
+        </form>
+        
+    </div>
+
+{% endblock %}

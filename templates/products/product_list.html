@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+        <h1 class="text-center">Products</h1><br/>
+
+        {% for product in product_list %}
+        <div class="col-md-6 offset-md-3">
+            <a href="{% url 'product-detail' product.id %}">{{ product }}</a>
+        </div>
+            
+        {% endfor %}
+{% endblock %}
